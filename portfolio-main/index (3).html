@@ -1,0 +1,1698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aykhan Alakbarov — Data Engineer</title>
+<meta name="description" content="Portfolio of Aykhan Alakbarov, Data Engineer. MSc Computing Science student at University of Glasgow on full scholarship. Specialist in ETL pipelines, machine learning systems, and enterprise data infrastructure.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,700;1,300&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+<style>
+  :root {
+    /* Theme Light: Warm Editorial Cream */
+    --bg: #F5F2EE;
+    --bg2: #EDEAE4;
+    --ink: #1A1814;
+    --ink2: #5A564F;
+    --accent: #2D5016;
+    --accent2: #4A7A28;
+    --card: #FFFFFF;
+    --border: rgba(26,24,20,0.1);
+    --shadow: rgba(26,24,20,0.05);
+    --shadow-hover: rgba(26,24,20,0.12);
+    --radius: 14px;
+    --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  [data-theme="dark"] {
+    /* Theme Dark: Premium Forest Dark */
+    --bg: #0D100C;
+    --bg2: #161A13;
+    --ink: #F2EFEA;
+    --ink2: #A59F93;
+    --accent: #5E9D3B;
+    --accent2: #7DBA59;
+    --card: #181E15;
+    --border: rgba(242,239,234,0.08);
+    --shadow: rgba(0,0,0,0.4);
+    --shadow-hover: rgba(0,0,0,0.6);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.7;
+    transition: background 0.4s ease, color 0.4s ease;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 1.2rem 5vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.3s, border-bottom 0.3s, backdrop-filter 0.3s;
+  }
+  nav.scrolled {
+    background: rgba(245,242,238,0.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+  [data-theme="dark"] nav.scrolled {
+    background: rgba(13,16,12,0.85);
+  }
+  .nav-left { display: flex; align-items: center; gap: 1.5rem; }
+  .nav-logo {
+    font-family: 'Fraunces', serif;
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: var(--ink);
+    text-decoration: none;
+    letter-spacing: -0.03em;
+    position: relative;
+  }
+  .nav-logo span { color: var(--accent); }
+  
+  .nav-links { display: flex; gap: 2.2rem; list-style: none; align-items: center; }
+  .nav-links a {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--ink2);
+    text-decoration: none;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: var(--transition);
+  }
+  .nav-links a:hover { color: var(--accent); }
+  
+  /* Theme Toggle button */
+  .theme-toggle {
+    background: none; border: 1.5px solid var(--border);
+    border-radius: 50%; width: 40px; height: 40px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--ink); transition: var(--transition);
+    outline: none;
+    cursor: pointer;
+  }
+  .theme-toggle:hover { border-color: var(--accent); color: var(--accent); transform: scale(1.05); }
+  .theme-toggle svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; }
+  .theme-toggle .sun { display: none; }
+  [data-theme="dark"] .theme-toggle .moon { display: none; }
+  [data-theme="dark"] .theme-toggle .sun { display: block; }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    padding: 4px;
+    cursor: pointer;
+  }
+  .hamburger span {
+    display: block; width: 24px; height: 2px;
+    background: var(--ink);
+    transition: 0.3s;
+  }
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: var(--bg);
+    z-index: 99;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    font-family: 'Fraunces', serif;
+    font-size: 2.5rem;
+    color: var(--ink);
+    text-decoration: none;
+    font-weight: 300;
+    font-style: italic;
+  }
+  .mobile-close {
+    position: absolute; top: 1.5rem; right: 5vw;
+    font-size: 2.2rem; background: none; border: none;
+    color: var(--ink);
+    cursor: pointer;
+  }
+
+  /* HERO */
+  #hero {
+    min-height: 100vh;
+    padding: 0 5vw;
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    align-items: center;
+    gap: 4rem;
+    padding-top: 100px;
+  }
+  .hero-left { max-width: 680px; }
+  .hero-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 2rem;
+    border: 1.5px solid var(--accent);
+    padding: 6px 14px;
+    border-radius: 100px;
+  }
+  .hero-label-dot { width: 7px; height: 7px; background: var(--accent); border-radius: 50%; animation: pulse-green 1.8s infinite; }
+  @keyframes pulse-green {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(45, 80, 22, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(45, 80, 22, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(45, 80, 22, 0); }
+  }
+  [data-theme="dark"] @keyframes pulse-green {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(94, 157, 59, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(94, 157, 59, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(94, 157, 59, 0); }
+  }
+  .hero-title {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(3.2rem, 5.8vw, 5.4rem);
+    line-height: 1.05;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.8rem;
+    color: var(--ink);
+  }
+  .hero-title em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--accent2);
+  }
+  .hero-sub {
+    font-size: 1.15rem;
+    color: var(--ink2);
+    max-width: 540px;
+    margin-bottom: 3rem;
+    line-height: 1.8;
+  }
+  .hero-ctas { display: flex; gap: 1.2rem; flex-wrap: wrap; }
+  
+  .btn-primary {
+    background: var(--accent);
+    color: #fff;
+    padding: 0.95rem 2.2rem;
+    border-radius: 100px;
+    text-decoration: none;
+    font-size: 0.92rem;
+    font-weight: 600;
+    transition: var(--transition);
+    border: none;
+    display: inline-block;
+    box-shadow: 0 4px 14px rgba(45,80,22,0.15);
+    cursor: pointer;
+  }
+  .btn-primary:hover { background: var(--accent2); transform: translateY(-3px); box-shadow: 0 6px 20px rgba(45,80,22,0.25); }
+  
+  .btn-outline {
+    background: transparent;
+    color: var(--ink);
+    padding: 0.95rem 2.2rem;
+    border-radius: 100px;
+    text-decoration: none;
+    font-size: 0.92rem;
+    font-weight: 600;
+    border: 1.5px solid var(--ink);
+    transition: var(--transition);
+    display: inline-block;
+    cursor: pointer;
+  }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-3px); }
+
+  /* Hero photo area with User's Portrait Image */
+  .hero-right { position: relative; display: flex; justify-content: center; }
+  .photo-frame {
+    width: 360px;
+    height: 360px;
+    border-radius: 28px;
+    overflow: hidden;
+    position: relative;
+    background: var(--bg2);
+    border: 1.5px solid var(--border);
+    box-shadow: 0 15px 35px var(--shadow);
+    transition: var(--transition);
+  }
+  .photo-frame:hover {
+    box-shadow: 0 20px 45px var(--shadow-hover);
+    transform: translateY(-4px);
+  }
+  .photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 77% 12%;
+    transform: scale(1.12);
+    transition: var(--transition);
+  }
+  .photo-frame:hover img {
+    transform: scale(1.18);
+  }
+  .photo-deco {
+    position: absolute;
+    top: 16px; right: -16px;
+    width: 360px; height: 360px;
+    border: 1.5px solid var(--accent);
+    border-radius: 28px;
+    z-index: -1;
+    opacity: 0.6;
+    transition: var(--transition);
+  }
+  .photo-frame:hover ~ .photo-deco {
+    transform: translate(6px, 6px);
+    opacity: 1;
+  }
+  .availability-badge {
+    position: absolute;
+    bottom: 24px; left: -24px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 10px 20px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    display: flex; align-items: center; gap: 10px;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.06);
+    color: var(--ink);
+  }
+
+  /* STATS STRIP */
+  .stats-strip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg2);
+    padding: 3rem 5vw 2.5rem;
+    flex-wrap: wrap;
+    color: var(--ink);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .strip-item {
+    flex: 1;
+    min-width: 160px;
+    text-align: center;
+    padding: 0.8rem 1rem;
+    transition: var(--transition);
+    border-radius: 8px;
+  }
+  .strip-item:hover {
+    background: rgba(0,0,0,0.02);
+  }
+  [data-theme="dark"] .strip-item:hover {
+    background: rgba(255,255,255,0.02);
+  }
+  .strip-num {
+    font-family: 'Fraunces', serif;
+    font-size: 3.2rem;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 0.4rem;
+    letter-spacing: -0.03em;
+  }
+  .strip-label {
+    font-size: 0.76rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink2);
+    font-weight: 600;
+    opacity: 0.8;
+  }
+  .strip-divider {
+    width: 1px;
+    height: 54px;
+    background: var(--border);
+    flex-shrink: 0;
+  }
+
+  /* SECTIONS COMMON */
+  section { padding: 8rem 5vw; }
+  .section-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-label::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 1.5px;
+    background: var(--accent);
+  }
+  .section-title {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 3.5rem;
+    color: var(--ink);
+  }
+  .section-title em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--accent2);
+  }
+
+  /* ABOUT - Changed background color to bright white in light theme to prevent dark/muddy feel */
+  #about { background: #FFFFFF; }
+  [data-theme="dark"] #about { background: #0E110C; }
+  .about-header { margin-bottom: 4rem; }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+  .about-bio {
+    font-size: 1.08rem;
+    color: var(--ink2);
+    line-height: 1.85;
+    margin-bottom: 1.5rem;
+  }
+  .about-bio strong { color: var(--ink); font-weight: 700; }
+  .about-bio em { font-style: italic; font-weight: 500; color: var(--accent); }
+
+  /* Work Experience Timeline */
+  .chapters { display: flex; flex-direction: column; }
+  .chapter {
+    display: flex;
+    gap: 2rem;
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--border);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .chapter:first-child { border-top: 1px solid var(--border); }
+  .chapter.visible { opacity: 1; transform: translateY(0); }
+  .chapter-num {
+    font-family: 'Fraunces', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--accent);
+    opacity: 0.5;
+    line-height: 1;
+    min-width: 36px;
+    padding-top: 4px;
+    transition: var(--transition);
+  }
+  .chapter:hover .chapter-num {
+    opacity: 1;
+    transform: translateX(4px);
+  }
+  .chapter-body { flex: 1; }
+  .chapter-title { font-size: 1.05rem; font-weight: 700; color: var(--ink); margin-bottom: 0.2rem; }
+  .chapter-year { font-size: 0.78rem; color: var(--accent2); letter-spacing: 0.08em; margin-bottom: 0.6rem; font-weight: 700; text-transform: uppercase; }
+  .chapter-desc { font-size: 0.88rem; color: var(--ink2); line-height: 1.7; }
+
+  /* TECH STACK */
+  #stack { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .stack-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+  }
+  .stack-group { margin-bottom: 2rem; }
+  .stack-group-label { font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink2); margin-bottom: 1.2rem; font-weight: 700; }
+  .tech-tags { display: flex; flex-wrap: wrap; gap: 0.8rem; }
+  .tech-tag {
+    display: flex; align-items: center; gap: 10px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 18px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--ink);
+    position: relative;
+    transition: var(--transition);
+  }
+  .tech-tag:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px var(--shadow-hover);
+    border-color: var(--accent);
+  }
+  .tech-tag i { font-size: 1.35rem; }
+
+  /* Dynamic Tooltip styles */
+  .tech-tooltip {
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%) translateY(8px);
+    background: var(--ink);
+    color: var(--bg);
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 0.76rem;
+    width: 240px;
+    line-height: 1.5;
+    font-weight: 400;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.25s, transform 0.25s;
+    z-index: 100;
+  }
+  .tech-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%; left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: var(--ink);
+  }
+  .tech-tag:hover .tech-tooltip {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  /* PROJECTS */
+  #projects { background: var(--bg); }
+  .filter-bar { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 3.5rem; }
+  .filter-btn {
+    padding: 8px 22px;
+    border-radius: 100px;
+    border: 1.5px solid var(--border);
+    background: transparent;
+    font-size: 0.84rem;
+    font-weight: 600;
+    color: var(--ink2);
+    transition: var(--transition);
+    letter-spacing: 0.04em;
+    cursor: pointer;
+  }
+  .filter-btn.active, .filter-btn:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+  
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+  .project-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: var(--transition);
+    display: flex; flex-direction: column;
+    box-shadow: 0 4px 16px var(--shadow);
+  }
+  .project-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px var(--shadow-hover); border-color: var(--accent); }
+  .project-card.hidden { display: none; }
+  
+  /* Screenshot Container and Placeholders */
+  .screenshot-container {
+    width: 100%;
+    height: 180px;
+    background: var(--bg2);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--ink2);
+    font-size: 0.8rem;
+    overflow: hidden;
+    position: relative;
+    transition: var(--transition);
+  }
+  .screenshot-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .screenshot-placeholder-text {
+    position: absolute;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.72rem;
+    opacity: 0.7;
+    text-align: center;
+    padding: 1rem;
+  }
+  
+  .project-badge {
+    position: absolute; top: 14px; right: 14px;
+    font-size: 0.72rem; font-weight: 700;
+    padding: 5px 12px;
+    border-radius: 100px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    z-index: 2;
+  }
+  .badge-hackathon { background: rgba(255, 152, 0, 0.15); color: #E65100; }
+  .badge-startup { background: rgba(76, 175, 80, 0.15); color: #2E7D32; }
+  .badge-professional { background: rgba(33, 150, 243, 0.15); color: #1565C0; }
+  .badge-personal { background: rgba(156, 39, 176, 0.15); color: #6A1B9A; }
+  
+  .project-body { padding: 1.6rem; flex: 1; display: flex; flex-direction: column; }
+  .project-name { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--ink); }
+  .project-val { font-size: 0.8rem; font-weight: 700; color: var(--accent2); margin-bottom: 0.8rem; text-transform: uppercase; }
+  .project-desc { font-size: 0.9rem; color: var(--ink2); line-height: 1.65; margin-bottom: 1.2rem; flex: 1; }
+  .project-techs { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
+  .tech-pill { font-size: 0.74rem; background: var(--bg2); padding: 4px 10px; border-radius: 100px; color: var(--ink2); font-weight: 600; }
+  
+  .project-links { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-top: auto; }
+  .proj-link {
+    font-size: 0.8rem; font-weight: 600;
+    padding: 6px 16px;
+    border-radius: 100px;
+    text-decoration: none;
+    border: 1px solid var(--border);
+    color: var(--ink2);
+    transition: var(--transition);
+    cursor: pointer;
+  }
+  .proj-link:hover { border-color: var(--accent); color: var(--accent); }
+  .proj-link.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .proj-link.primary:hover { background: var(--accent2); }
+
+  /* SLIDE DRAWERS FOR PROJECT DETAILS */
+  .drawer-backdrop {
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(8px);
+    z-index: 999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+  .drawer-backdrop.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .project-drawer {
+    position: fixed; top: 0; right: -640px;
+    width: 600px; max-width: 90vw; height: 100%;
+    background: var(--card);
+    border-left: 1px solid var(--border);
+    box-shadow: -10px 0 40px var(--shadow);
+    z-index: 1000;
+    transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    padding: 3rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .project-drawer.open {
+    right: 0;
+  }
+  .drawer-close {
+    align-self: flex-start;
+    background: none; border: none;
+    font-size: 1.8rem; color: var(--ink2);
+    margin-bottom: 2rem;
+    transition: var(--transition);
+    cursor: pointer;
+  }
+  .drawer-close:hover { color: var(--accent); transform: rotate(90deg); }
+  .drawer-title { font-family: 'Fraunces', serif; font-size: 2.2rem; font-weight: 700; margin-bottom: 0.5rem; line-height: 1.2; }
+  .drawer-val { font-size: 0.9rem; font-weight: 700; color: var(--accent2); margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .drawer-desc { font-size: 1.02rem; color: var(--ink2); line-height: 1.7; margin-bottom: 2.5rem; }
+  
+  .drawer-section-title {
+    font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 1.2rem; border-bottom: 1px solid var(--border); padding-bottom: 6px;
+  }
+  .drawer-highlights { margin-bottom: 2.5rem; }
+  .drawer-highlights li { margin-left: 1.2rem; margin-bottom: 0.8rem; font-size: 0.92rem; color: var(--ink); }
+
+  /* Architecture Diagram SVG Styles */
+  .arch-diagram-wrapper {
+    background: var(--bg2);
+    border-radius: var(--radius);
+    padding: 1.8rem;
+    margin-bottom: 2.5rem;
+    border: 1px solid var(--border);
+  }
+  .arch-svg {
+    width: 100%;
+    height: auto;
+  }
+  .arch-box {
+    fill: var(--card);
+    stroke: var(--border);
+    stroke-width: 1.5;
+    rx: 6; ry: 6;
+    transition: var(--transition);
+  }
+  .arch-box.active {
+    stroke: var(--accent);
+    fill: rgba(45, 80, 22, 0.05);
+  }
+  [data-theme="dark"] .arch-box.active {
+    fill: rgba(94, 157, 59, 0.05);
+  }
+  .arch-text {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    fill: var(--ink);
+    text-anchor: middle;
+  }
+  .arch-arrow {
+    fill: none;
+    stroke: var(--accent2);
+    stroke-width: 1.5;
+    marker-end: url(#arrowhead);
+  }
+
+  /* CV / RESUME - Modified to hold image elements with a soft light desk background */
+  #cv { background: #EDEAE4; border-top: 1px solid var(--border); }
+  [data-theme="dark"] #cv { background: #121610; }
+  .cv-actions { display: flex; gap: 1.2rem; margin-bottom: 3.5rem; }
+  
+  .cv-images-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .cv-image-card {
+    background: #ffffff;
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 8px;
+    box-shadow: 0 10px 30px var(--shadow);
+    overflow: hidden;
+    transition: var(--transition);
+    position: relative;
+  }
+  .cv-image-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px var(--shadow-hover);
+  }
+  .cv-image-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  /* CV MODAL */
+  .cv-modal {
+    display: none; position: fixed; inset: 0;
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(12px);
+    z-index: 1200;
+    align-items: center; justify-content: center;
+    padding: 2rem;
+  }
+  .cv-modal.open { display: flex; }
+  .cv-modal-inner {
+    background: var(--bg);
+    border-radius: var(--radius);
+    padding: 3rem;
+    max-width: 1100px; width: 100%;
+    max-height: 90vh; overflow-y: auto;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  }
+  .cv-modal-close { position: absolute; top: 1.5rem; right: 1.5rem; background: none; border: none; font-size: 2rem; color: var(--ink); cursor: pointer; }
+  .cv-modal-close:hover { color: var(--accent); }
+  .cv-modal-pages { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1.5rem; }
+
+  /* CONTACT */
+  #contact { background: var(--ink); color: var(--bg); border-top: 1px solid var(--border); }
+  #contact .section-title { color: var(--bg); }
+  #contact .section-label { color: var(--accent2); }
+  #contact .section-label::before { background: var(--accent2); }
+  .contact-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 5rem; }
+  .contact-left { max-width: 600px; }
+  .contact-sub { font-size: 1.2rem; color: var(--ink2); margin-bottom: 3rem; }
+  
+  /* Form styling */
+  .contact-form { display: flex; flex-direction: column; gap: 1.5rem; }
+  .form-group { display: flex; flex-direction: column; gap: 0.5rem; }
+  .form-group label { font-size: 0.74rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink2); }
+  .form-control {
+    background: rgba(255,255,255,0.03);
+    border: 1.5px solid rgba(255,255,255,0.08);
+    border-radius: 8px;
+    padding: 0.9rem 1.2rem;
+    color: var(--bg);
+    font-family: inherit;
+    font-size: 0.95rem;
+    transition: var(--transition);
+  }
+  .form-control:focus {
+    border-color: var(--accent2);
+    background: rgba(255,255,255,0.06);
+    outline: none;
+  }
+  
+  .contact-links { display: flex; gap: 1.5rem; flex-wrap: wrap; margin-top: 1.5rem; }
+  .contact-link {
+    display: flex; align-items: center; gap: 12px;
+    color: var(--bg);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.85rem 1.8rem;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 100px;
+    transition: var(--transition);
+    cursor: pointer;
+  }
+  .contact-link:hover { border-color: var(--accent2); background: rgba(255,255,255,0.04); transform: translateY(-2px); }
+  .contact-link svg { width: 18px; height: 18px; }
+
+  footer {
+    background: var(--ink);
+    color: var(--ink2);
+    text-align: center;
+    padding: 2.5rem 2rem;
+    font-size: 0.85rem;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+
+  /* Scroll reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* RESPONSIVE */
+  @media (max-width: 1100px) {
+    #hero { grid-template-columns: 1fr; padding-top: 120px; gap: 4rem; text-align: center; }
+    .hero-left { max-width: 100%; }
+    .hero-sub { margin-left: auto; margin-right: auto; }
+    .hero-ctas { justify-content: center; }
+    .hero-right { justify-content: center; }
+    .about-grid { grid-template-columns: 1fr; gap: 4rem; }
+    .stack-grid { grid-template-columns: 1fr; }
+    .projects-grid { grid-template-columns: 1fr 1fr; }
+    .cv-images-container { grid-template-columns: 1fr; gap: 2rem; max-width: 600px; }
+    .cv-modal-pages { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; gap: 4rem; }
+    .strip-divider { display: none; }
+    .stats-strip { gap: 1.5rem; justify-content: space-around; }
+  }
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .photo-frame { width: 260px; height: 260px; border-radius: 16px; }
+    .photo-deco { width: 260px; height: 260px; border-radius: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose">✕</button>
+  <a href="#about" onclick="closeMobile()">About</a>
+  <a href="#stack" onclick="closeMobile()">Stack</a>
+  <a href="#projects" onclick="closeMobile()">Projects</a>
+  <a href="#cv" onclick="closeMobile()">CV</a>
+  <a href="#contact" onclick="closeMobile()">Contact</a>
+</div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-left">
+    <a href="#hero" class="nav-logo">Aykhan<span>.</span></a>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#stack">Stack</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#cv">CV</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme">
+        <!-- Moon Icon -->
+        <svg class="moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        <!-- Sun Icon -->
+        <svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+      </button>
+    </li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <span class="hero-label">
+      <span class="hero-label-dot"></span>
+      Available for roles & collabs
+    </span>
+    <h1 class="hero-title">Builder.<br><em>Engineer.</em><br>Founder.</h1>
+    <p class="hero-sub">I design high-performance data systems, deploy scalable AI pipelines, and architect software products that deliver real business outcomes. Currently specializing in Data Engineering at the University of Glasgow.</p>
+    <div class="hero-ctas">
+      <a href="#projects" class="btn-primary">Explore My Work</a>
+      <a href="#cv" class="btn-outline">View Resume</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div style="position:relative;">
+      <!-- Portrait Image Display with Premium Asymmetric Border Framing -->
+      <div class="photo-frame">
+        <img src="assets/aykhan.jpg" alt="Aykhan Alakbarov">
+      </div>
+      <div class="photo-deco"></div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS STRIP -->
+<div class="stats-strip">
+  <div class="strip-item">
+    <div class="strip-num" data-target="7" data-suffix="+">0+</div>
+    <div class="strip-label">Hackathons Placed</div>
+  </div>
+  <div class="strip-divider"></div>
+  <div class="strip-item">
+    <div class="strip-num" data-target="2" data-suffix="">0</div>
+    <div class="strip-label">Startup Placements</div>
+  </div>
+  <div class="strip-divider"></div>
+  <div class="strip-item">
+    <div class="strip-num" data-target="3" data-suffix="+">0+</div>
+    <div class="strip-label">Years of Experience</div>
+  </div>
+  <div class="strip-divider"></div>
+  <div class="strip-item">
+    <div class="strip-num" data-prefix="$" data-target="45" data-suffix="K+">$0K+</div>
+    <div class="strip-label">Total Revenue</div>
+  </div>
+  <div class="strip-divider"></div>
+  <div class="strip-item">
+    <div class="strip-num" data-target="10" data-suffix="+">0+</div>
+    <div class="strip-label">Projects Shipped</div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-header reveal">
+    <span class="section-label">About Me</span>
+    <h2 class="section-title">An entrepreneurial<br><em>engineering mindset.</em></h2>
+  </div>
+  <div class="about-grid">
+    <div class="reveal">
+      <p class="about-bio"><strong>Data and AI Engineer</strong> with <strong>3+ years</strong> of experience delivering data-driven solutions and improving business processes through technology. Holds a dual B.Sc. degree from <em>Inha University</em> and <em>Baku Engineering University</em> and is currently pursuing an MSc in Computing Science (<em>Data Engineering</em>) at the <em>University of Glasgow</em> on a government scholarship.</p>
+      <p class="about-bio">Experienced in developing <strong>scalable software solutions</strong>, <strong>optimizing enterprise systems</strong>, and <strong>leading innovative projects</strong> from concept to deployment. Recognized through multiple national and international hackathon achievements, demonstrating strong <strong>problem-solving</strong>, <strong>teamwork</strong>, and <strong>project execution skills</strong>.</p>
+      <a href="#contact" class="btn-primary" style="display:inline-block; margin-top:1.5rem;">Contact Me</a>
+    </div>
+    <div class="reveal">
+      <span class="section-label" style="display:block; margin-bottom:2rem;">Work Experience</span>
+      <div class="chapters">
+        <div class="chapter">
+          <div class="chapter-num">01</div>
+          <div class="chapter-body">
+            <div class="chapter-title">AI Software Engineer · ABV Group</div>
+            <div class="chapter-year">Feb 2026 — Present</div>
+            <div class="chapter-desc">Designed and deployed a document-processing + RAG pipeline ingesting emails and PDFs via PaddleOCR, structuring outputs with LLaMA-3 into JSON databases stored in GCS. Implemented hybrid retrieval models (BM25 + FAISS) to improve document search precision.</div>
+          </div>
+        </div>
+        <div class="chapter">
+          <div class="chapter-num">02</div>
+          <div class="chapter-body">
+            <div class="chapter-title">Innovation Manager · BEU Technopark</div>
+            <div class="chapter-year">June 2025 — Present</div>
+            <div class="chapter-desc">Serve as primary liaison between 20+ incubated startups and institutional stakeholders, translating MVP-stage technical progress into structured analytical reports for VC investors. Coordinated programs for 300+ participants, tracking budgets and metrics.</div>
+          </div>
+        </div>
+        <div class="chapter">
+          <div class="chapter-num">03</div>
+          <div class="chapter-body">
+            <div class="chapter-title">Data Engineer · NAAL Electronics</div>
+            <div class="chapter-year">June 2025 — Sep 2025</div>
+            <div class="chapter-desc">Extended and maintained database ETL pipelines (SQL, Python) processing 20,000+ records per batch from hospital databases. Designed database schemas for client integrations and tuned index configurations to decrease query latencies.</div>
+          </div>
+        </div>
+        <div class="chapter">
+          <div class="chapter-num">04</div>
+          <div class="chapter-body">
+            <div class="chapter-title">Software Engineer Intern · Inha University (South Korea)</div>
+            <div class="chapter-year">Sep 2024 — Dec 2024</div>
+            <div class="chapter-desc">Contributed to an AI-based Speech & Emotion Assistant running on edge hardware inside the Embedded Systems Lab, integrating 5+ IoT hardware devices using Python and C++ for multi-sensor detection.</div>
+          </div>
+        </div>
+        <div class="chapter">
+          <div class="chapter-num">05</div>
+          <div class="chapter-body">
+            <div class="chapter-title">Data Analyst Intern · NAAL Electronics</div>
+            <div class="chapter-year">Feb 2024 — July 2024</div>
+            <div class="chapter-desc">Built medical data pipelines covering ingestion, validation, and transformations using SQL and Python. Designed and maintained 10+ interactive Tableau dashboards to track KPIs for executive stakeholders.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TECH STACK -->
+<section id="stack">
+  <span class="section-label">Technical Competencies</span>
+  <h2 class="section-title reveal">My Skill Stack</h2>
+  <div class="reveal stack-grid">
+    <div>
+      <div class="stack-group">
+        <div class="stack-group-label">Languages & Databases</div>
+        <div class="tech-tags">
+          <div class="tech-tag" data-tooltip="Python: Core language for AI models, ETL pipelines, and structural processing."><i class="devicon-python-plain colored"></i> Python<span class="tech-tooltip">Python: Core language for AI models, ETL pipelines, and structural processing.</span></div>
+          <div class="tech-tag" data-tooltip="Java: Object-oriented programming for structural enterprise development."><i class="devicon-java-plain colored"></i> Java<span class="tech-tooltip">Java: Object-oriented programming for structural enterprise development.</span></div>
+          <div class="tech-tag" data-tooltip="C/C++: Integrated for embedded speech systems and real-time edge processing at Inha Lab."><i class="devicon-cplusplus-plain colored"></i> C/C++<span class="tech-tooltip">C/C++: Integrated for embedded speech systems and real-time edge processing at Inha Lab.</span></div>
+          <div class="tech-tag" data-tooltip="SQL: Structured schemas and queries in MSSQL and MySQL databases at NAAL Electronics."><i class="devicon-postgresql-plain colored"></i> SQL (MSSQL, MySQL)<span class="tech-tooltip">SQL: Structured schemas and queries in MSSQL and MySQL databases.</span></div>
+          <div class="tech-tag" data-tooltip="Oracle / PL-SQL: Programmed stored procedures and transaction tables."><i class="devicon-oracle-original colored"></i> Oracle / PL-SQL<span class="tech-tooltip">Oracle / PL-SQL: Programmed stored procedures and transaction tables.</span></div>
+        </div>
+      </div>
+      
+      <div class="stack-group">
+        <div class="stack-group-label">Data Engineering & Analytics</div>
+        <div class="tech-tags">
+          <div class="tech-tag" data-tooltip="ETL / ELT: Built workflows to ingest, format, and load batch details."><i class="devicon-apacheairflow-plain colored"></i> ETL / ELT<span class="tech-tooltip">ETL / ELT: Built workflows to ingest, format, and load batch details.</span></div>
+          <div class="tech-tag" data-tooltip="Data Cleaning: Cleansing and validation of records across clinical schemas."><i class="devicon-pandas-original colored"></i> Data Cleaning<span class="tech-tooltip">Data Cleaning: Cleansing and validation of records across clinical schemas.</span></div>
+          <div class="tech-tag" data-tooltip="Apache Spark: Executed large-scale analytics computations on clusters."><i class="devicon-apachespark-original colored"></i> Apache Spark<span class="tech-tooltip">Apache Spark: Executed large-scale analytics computations on clusters.</span></div>
+          <div class="tech-tag" data-tooltip="Tableau / Power BI: Designed operational KPI metrics monitoring views."><i class="devicon-windows8-original colored"></i> Tableau / Power BI<span class="tech-tooltip">Tableau / Power BI: Designed operational KPI metrics monitoring views.</span></div>
+          <div class="tech-tag" data-tooltip="Excel: Built spreadsheet models for basic audits and data transformations."><i class="devicon-python-plain"></i> Excel<span class="tech-tooltip">Excel: Built spreadsheet models for basic audits and data transformations.</span></div>
+        </div>
+      </div>
+    </div>
+    
+    <div>
+      <div class="stack-group">
+        <div class="stack-group-label">AI & Machine Learning</div>
+        <div class="tech-tags">
+          <div class="tech-tag" data-tooltip="ML / AI: Constructed and evaluated machine learning predictive algorithms."><i class="devicon-pytorch-original colored"></i> ML / AI<span class="tech-tooltip">ML / AI: Constructed and evaluated machine learning predictive algorithms.</span></div>
+          <div class="tech-tag" data-tooltip="Scikit-Learn: Implemented classification and regression pipelines."><i class="devicon-scikitlearn-plain colored"></i> Scikit-learn<span class="tech-tooltip">Scikit-learn: Implemented classification and regression pipelines.</span></div>
+          <div class="tech-tag" data-tooltip="Pandas / Numpy: Core tools for processing structural matrices."><i class="devicon-pandas-original colored"></i> Pandas / Numpy<span class="tech-tooltip">Pandas / Numpy: Core tools for processing structural matrices.</span></div>
+        </div>
+      </div>
+      
+      <div class="stack-group">
+        <div class="stack-group-label">Cloud & Infrastructure</div>
+        <div class="tech-tags">
+          <div class="tech-tag" data-tooltip="AWS: Administered cloud servers, EC2 instances, and IAM access controls."><i class="devicon-amazonwebservices-plain-wordmark colored"></i> AWS<span class="tech-tooltip">AWS: Administered cloud servers, EC2 instances, and IAM access controls.</span></div>
+          <div class="tech-tag" data-tooltip="Docker: Configured isolated environment structures for reproducible run states."><i class="devicon-docker-plain colored"></i> Docker<span class="tech-tooltip">Docker: Configured isolated environment structures for reproducible run states.</span></div>
+          <div class="tech-tag" data-tooltip="Linux: Scripted backend routines and scheduled Cron tasks in terminal shells."><i class="devicon-linux-plain"></i> Linux<span class="tech-tooltip">Linux: Scripted backend routines and scheduled Cron tasks in terminal shells.</span></div>
+          <div class="tech-tag" data-tooltip="CI/CD: Automated integration pipelines and code build testing loops."><i class="devicon-git-plain"></i> CI/CD<span class="tech-tooltip">CI/CD: Automated integration pipelines and code build testing loops.</span></div>
+          <div class="tech-tag" data-tooltip="Google Cloud (GCS): Administered cloud buckets for unstructured document dump pipelines."><i class="devicon-google-plain colored"></i> Google Cloud (GCS)<span class="tech-tooltip">Google Cloud (GCS): Administered cloud buckets for unstructured document dump pipelines.</span></div>
+        </div>
+      </div>
+
+      <div class="stack-group">
+        <div class="stack-group-label">Operations & Methods</div>
+        <div class="tech-tags">
+          <div class="tech-tag" data-tooltip="Agile workflows: Run sprints and coordinated logs."><i class="devicon-trello-plain"></i> Agile workflows<span class="tech-tooltip">Agile workflows: Run sprints and coordinated logs.</span></div>
+          <div class="tech-tag" data-tooltip="GitHub / Jira: Managed bug tracking, version logs, and release tickets."><i class="devicon-github-original colored"></i> GitHub / Jira<span class="tech-tooltip">GitHub / Jira: Managed bug tracking, version logs, and release tickets.</span></div>
+          <div class="tech-tag" data-tooltip="Trello / Notion: Coordinated project boards and documented specifications."><i class="devicon-trello-plain colored"></i> Trello / Notion<span class="tech-tooltip">Trello / Notion: Coordinated project boards and documented specifications.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <span class="section-label">Projects Portfolio</span>
+  <h2 class="section-title reveal">Shipped Systems & Products</h2>
+  <div class="filter-bar reveal">
+    <button class="filter-btn active" data-filter="all">All Systems</button>
+    <button class="filter-btn" data-filter="startup">Startups & Products</button>
+    <button class="filter-btn" data-filter="professional">Professional Delivery</button>
+    <button class="filter-btn" data-filter="hackathon">Hackathon Wins</button>
+  </div>
+  <div class="projects-grid reveal" id="projectsGrid">
+
+    <!-- Project 1: ERP Attendance System -->
+    <div class="project-card" data-category="startup" data-project-id="erp">
+      <!-- Screenshot Container/Placeholder -->
+      <div class="screenshot-container">
+        <img src="assets/project_erp.jpg" alt="ERP System Screenshot" onerror="this.style.display='none';">
+        <span class="screenshot-placeholder-text">[ Insert ERP Screenshot Here ]</span>
+        <span class="project-badge badge-startup">💰 Sold: $14K + Rev Share</span>
+      </div>
+      <div class="project-body">
+        <div class="project-name">HR / ERP Attendance & Payroll System</div>
+        <div class="project-val">Commercial Enterprise Product</div>
+        <p class="project-desc">Designed an employee management platform connecting HikVision facial recognition and fingerprint hardware to automated salary and attendance calculations. Sold to ABV Group.</p>
+        <div class="project-techs">
+          <span class="tech-pill">Biometrics Integration</span>
+          <span class="tech-pill">Payroll Engine</span>
+          <span class="tech-pill">SQL</span>
+        </div>
+        <div class="project-links">
+          <a href="#" class="proj-link primary drawer-trigger" data-project="erp">Architecture & Details</a>
+          <a href="#" class="proj-link" target="_blank">View Demo</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 2: Sakhara Beauty SaaS -->
+    <div class="project-card" data-category="startup" data-project-id="sakhara">
+      <!-- Screenshot Container/Placeholder -->
+      <div class="screenshot-container">
+        <img src="assets/project_sakhara.jpg" alt="Sakhara SaaS Screenshot" onerror="this.style.display='none';">
+        <span class="screenshot-placeholder-text">[ Insert Sakhara SaaS Screenshot Here ]</span>
+        <span class="project-badge badge-startup">💰 Sold: $12K Outright</span>
+      </div>
+      <div class="project-body">
+        <div class="project-name">Sakhara Beauty SaaS</div>
+        <div class="project-val">Commercial Management SaaS</div>
+        <p class="project-desc">Built a multi-tenant business manager for a large Baku salon chain. Features role-based dashboards (staff, HR, managers) and automated expense calculations.</p>
+        <div class="project-techs">
+          <span class="tech-pill">SaaS Portal</span>
+          <span class="tech-pill">SQL Database</span>
+          <span class="tech-pill">Role-Based Access</span>
+        </div>
+        <div class="project-links">
+          <a href="#" class="proj-link primary drawer-trigger" data-project="sakhara">Architecture & Details</a>
+          <a href="#" class="proj-link" target="_blank">Live Site</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 3: Learned Language Startup -->
+    <div class="project-card" data-category="startup" data-project-id="learned">
+      <!-- Screenshot Container/Placeholder -->
+      <div class="screenshot-container">
+        <img src="assets/project_learned.jpg" alt="Learned Screenshot" onerror="this.style.display='none';">
+        <span class="screenshot-placeholder-text">[ Insert Learned Screenshot Here ]</span>
+        <span class="project-badge badge-startup">🚀 Co-Founded: $7K Rev</span>
+      </div>
+      <div class="project-body">
+        <div class="project-name">Learned Language Platform</div>
+        <div class="project-val">Adaptive E-Learning Startup</div>
+        <p class="project-desc">Co-founded an adaptive language-learning platform targeting Caucasus markets. Users select topic and difficulty; system generates vocabulary tracks and prompts.</p>
+        <div class="project-techs">
+          <span class="tech-pill">Adaptive Learning</span>
+          <span class="tech-pill">Python NLP</span>
+          <span class="tech-pill">NoSQL</span>
+        </div>
+        <div class="project-links">
+          <a href="#" class="proj-link primary drawer-trigger" data-project="learned">Architecture & Details</a>
+          <a href="#" class="proj-link" target="_blank">GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 4: Medallion Data Warehouse -->
+    <div class="project-card" data-category="professional" data-project-id="dwh">
+      <!-- Screenshot Container/Placeholder -->
+      <div class="screenshot-container">
+        <img src="assets/project_dwh.jpg" alt="DWH Screenshot" onerror="this.style.display='none';">
+        <span class="screenshot-placeholder-text">[ Insert DWH Flow Diagram Here ]</span>
+        <span class="project-badge badge-professional">💼 Data Infrastructure</span>
+      </div>
+      <div class="project-body">
+        <div class="project-name">Enterprise SQL Data Warehouse</div>
+        <div class="project-val">System Architecture</div>
+        <p class="project-desc">Designed an end-to-end data pipeline implementing Medallion Architecture (Bronze, Silver, Gold Stages) to clean, merge, and structure CRM and ERP records.</p>
+        <div class="project-techs">
+          <span class="tech-pill">Medallion Flow</span>
+          <span class="tech-pill">SQL Processing</span>
+          <span class="tech-pill">Data Pipelines</span>
+        </div>
+        <div class="project-links">
+          <a href="#" class="proj-link primary drawer-trigger" data-project="dwh">Architecture & Details</a>
+          <a href="#" class="proj-link" target="_blank">GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 5: iGaming Funnel Analytics -->
+    <div class="project-card" data-category="professional" data-project-id="igaming">
+      <!-- Screenshot Container/Placeholder -->
+      <div class="screenshot-container">
+        <img src="assets/project_igaming.jpg" alt="iGaming Screenshot" onerror="this.style.display='none';">
+        <span class="screenshot-placeholder-text">[ Insert Dashboard Screenshot Here ]</span>
+        <span class="project-badge badge-professional">💼 Analytics Delivery</span>
+      </div>
+      <div class="project-body">
+        <div class="project-name">iGaming Funnel Analytics</div>
+        <div class="project-val">Data Analysis Project</div>
+        <p class="project-desc">Processed game logs for 10,000+ users to calculate conversion, retention, and churn cohorts. Built executive BI visualizations to isolate drop-off points.</p>
+        <div class="project-techs">
+          <span class="tech-pill">SQL Analysis</span>
+          <span class="tech-pill">Python</span>
+          <span class="tech-pill">Tableau dashboard</span>
+        </div>
+        <div class="project-links">
+          <a href="#" class="proj-link primary drawer-trigger" data-project="igaming">Architecture & Details</a>
+          <a href="#" class="proj-link" target="_blank">Tableau Link</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 6: ABV Group RAG Pipeline -->
+    <div class="project-card" data-category="hackathon" data-project-id="rag">
+      <!-- Screenshot Container/Placeholder -->
+      <div class="screenshot-container">
+        <img src="assets/project_rag.jpg" alt="RAG Pipeline Screenshot" onerror="this.style.display='none';">
+        <span class="screenshot-placeholder-text">[ Insert RAG System Flow Screenshot ]</span>
+        <span class="project-badge badge-hackathon">🏆 AI Ingestion pipeline</span>
+      </div>
+      <div class="project-body">
+        <div class="project-name">LLaMA-3 Enterprise RAG System</div>
+        <div class="project-val">AI/ML Integration</div>
+        <p class="project-desc">Designed and deployed a document-processing + RAG system ingesting PDFs with PaddleOCR and structuring output with LLaMA-3.</p>
+        <div class="project-techs">
+          <span class="tech-pill">LLaMA-3 API</span>
+          <span class="tech-pill">FAISS Database</span>
+          <span class="tech-pill">PaddleOCR</span>
+        </div>
+        <div class="project-links">
+          <a href="#" class="proj-link primary drawer-trigger" data-project="rag">Architecture & Details</a>
+          <a href="#" class="proj-link" target="_blank">View Project</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CV SECTION -->
+<section id="cv">
+  <span class="section-label">CV</span>
+  <div class="cv-actions reveal" style="margin-bottom: 2.5rem;">
+    <button class="btn-primary" onclick="document.getElementById('cvModal').classList.add('open')">Full View</button>
+    <a href="assets/cv.pdf" download class="btn-outline">Download CV</a>
+  </div>
+  
+  <!-- CV Section: Displaying the 2 original CV pages directly with a soft white backdrop -->
+  <div class="cv-images-container reveal">
+    <div class="cv-image-card">
+      <img src="assets/cv_page_1.png" alt="Aykhan Alakbarov CV Page 1">
+    </div>
+    <div class="cv-image-card">
+      <img src="assets/cv_page_2.png" alt="Aykhan Alakbarov CV Page 2">
+    </div>
+  </div>
+</section>
+
+<!-- CV MODAL -->
+<div class="cv-modal" id="cvModal">
+  <div class="cv-modal-inner">
+    <button class="cv-modal-close" onclick="document.getElementById('cvModal').classList.remove('open')">✕</button>
+    <div style="display:flex; gap:1rem; margin-bottom:1.5rem; justify-content: space-between; align-items:center;">
+      <h3 style="font-family: 'Fraunces', serif; font-size: 1.8rem; color: var(--ink);">CV</h3>
+      <div>
+        <a href="assets/cv.pdf" download class="btn-primary">Download CV</a>
+      </div>
+    </div>
+    <div class="cv-modal-pages">
+      <div class="cv-image-card">
+        <img src="assets/cv_page_1.png" alt="Aykhan Alakbarov CV Page 1">
+      </div>
+      <div class="cv-image-card">
+        <img src="assets/cv_page_2.png" alt="Aykhan Alakbarov CV Page 2">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BACKDROP FOR DRAWERS -->
+<div class="drawer-backdrop" id="drawerBackdrop"></div>
+
+<!-- PROJECT SIDE DRAWERS -->
+<!-- ERP System Drawer -->
+<div class="project-drawer" id="drawer-erp">
+  <button class="drawer-close" onclick="closeDrawers()">✕</button>
+  <div class="drawer-title">HR / ERP Attendance & Payroll System</div>
+  <div class="drawer-val">Revenue: $14,000 + 20% Lifetime Share</div>
+  <p class="drawer-desc">This enterprise product was built to streamline operational HR structures. It connects physical local biometric terminals directly to structured SQL databases and calculates net payroll based on shift laws, automatic deducts, and overtime structures.</p>
+  
+  <div class="drawer-section-title">Screenshot / Mockup</div>
+  <div class="screenshot-container" style="margin-bottom: 2rem;">
+    <img src="assets/project_erp_detail.jpg" alt="ERP Details Screenshot" onerror="this.style.display='none';">
+    <span class="screenshot-placeholder-text">[ Insert ERP In-Depth Screenshot Here ]</span>
+  </div>
+
+  <div class="drawer-section-title">System Architecture</div>
+  <div class="arch-diagram-wrapper">
+    <svg class="arch-svg" viewBox="0 0 320 160">
+      <defs>
+        <marker id="arrowhead" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+          <polygon points="0 0, 6 3, 0 6" fill="var(--accent2)"/>
+        </marker>
+      </defs>
+      <rect x="10" y="55" width="70" height="40" class="arch-box active"></rect>
+      <text x="45" y="78" class="arch-text">Biometric Devices</text>
+      
+      <path d="M 80,75 L 115,75" class="arch-arrow"></path>
+      
+      <rect x="120" y="55" width="70" height="40" class="arch-box active"></rect>
+      <text x="155" y="75" class="arch-text">Node.js API</text>
+      <text x="155" y="87" class="arch-text">(Calculations)</text>
+      
+      <path d="M 190,75 L 225,75" class="arch-arrow"></path>
+      
+      <rect x="230" y="55" width="80" height="40" class="arch-box active"></rect>
+      <text x="270" y="72" class="arch-text">MSSQL Database</text>
+      <text x="270" y="84" class="arch-text">(HR Dashboard)</text>
+    </svg>
+  </div>
+  
+  <div class="drawer-section-title">Key Highlights & Impact</div>
+  <ul class="drawer-highlights">
+    <li>Integrated HikVision Device SDKs to fetch raw log streams securely over networks.</li>
+    <li>Engineered custom shift parsing algorithms in Python and SQL, resolving Split-shift Edge cases.</li>
+    <li>Delivered to ABV Group; currently deployed across 5+ companies handling 2,000+ combined staff.</li>
+  </ul>
+
+  <div class="drawer-section-title">Links</div>
+  <div style="display: flex; gap: 1rem; margin-bottom: 2rem;">
+    <a href="#" class="proj-link primary" target="_blank">Launch Live Demo</a>
+    <a href="#" class="proj-link" target="_blank">GitHub Repository</a>
+  </div>
+</div>
+
+<!-- Sakhara SaaS Drawer -->
+<div class="project-drawer" id="drawer-sakhara">
+  <button class="drawer-close" onclick="closeDrawers()">✕</button>
+  <div class="drawer-title">Sakhara Beauty SaaS</div>
+  <div class="drawer-val">Revenue: $12,000 Outright Sale</div>
+  <p class="drawer-desc">Multi-tenant retail and salon platform built to automate bookings, employee performance reviews, and multi-location financial tracking. Provides granular access scopes depending on employee credentials.</p>
+  
+  <div class="drawer-section-title">Screenshot / Mockup</div>
+  <div class="screenshot-container" style="margin-bottom: 2rem;">
+    <img src="assets/project_sakhara_detail.jpg" alt="Sakhara Details Screenshot" onerror="this.style.display='none';">
+    <span class="screenshot-placeholder-text">[ Insert Sakhara Details Screenshot Here ]</span>
+  </div>
+
+  <div class="drawer-section-title">System Architecture</div>
+  <div class="arch-diagram-wrapper">
+    <svg class="arch-svg" viewBox="0 0 320 160">
+      <rect x="10" y="55" width="70" height="40" class="arch-box active"></rect>
+      <text x="45" y="78" class="arch-text">Clients (SaaS UI)</text>
+      
+      <path d="M 80,75 L 115,75" class="arch-arrow"></path>
+      
+      <rect x="120" y="55" width="70" height="40" class="arch-box active"></rect>
+      <text x="155" y="75" class="arch-text">FastAPI Backend</text>
+      <text x="155" y="87" class="arch-text">(Tenants Isolation)</text>
+      
+      <path d="M 190,75 L 225,75" class="arch-arrow"></path>
+      
+      <rect x="230" y="55" width="80" height="40" class="arch-box active"></rect>
+      <text x="270" y="78" class="arch-text">PostgreSQL DB</text>
+    </svg>
+  </div>
+
+  <div class="drawer-section-title">Key Highlights & Impact</div>
+  <ul class="drawer-highlights">
+    <li>Engineered database row-level security policies (RLS) to ensure strict tenant data isolation.</li>
+    <li>Built a real-time calendar and appointment booking system utilizing fast memory structures.</li>
+    <li>Sold directly to a prominent Baku beauty chain to run operations across all their regional branches.</li>
+  </ul>
+
+  <div class="drawer-section-title">Links</div>
+  <div style="display: flex; gap: 1rem; margin-bottom: 2rem;">
+    <a href="#" class="proj-link primary" target="_blank">Launch Live Demo</a>
+    <a href="#" class="proj-link" target="_blank">GitHub Repository</a>
+  </div>
+</div>
+
+<!-- Learned Drawer -->
+<div class="project-drawer" id="drawer-learned">
+  <button class="drawer-close" onclick="closeDrawers()">✕</button>
+  <div class="drawer-title">Learned Language Startup</div>
+  <div class="drawer-val">Traction: $7,000+ Revenue / 240 MAU</div>
+  <p class="drawer-desc">An adaptive educational startup targeted at language students. Users choose topics of interest and difficulty levels; the backend generates custom vocabulary tracks, semantic context paragraphs, and matches them to peers for oral practice.</p>
+
+  <div class="drawer-section-title">Screenshot / Mockup</div>
+  <div class="screenshot-container" style="margin-bottom: 2rem;">
+    <img src="assets/project_learned_detail.jpg" alt="Learned Details Screenshot" onerror="this.style.display='none';">
+    <span class="screenshot-placeholder-text">[ Insert Learned App Mockup Here ]</span>
+  </div>
+
+  <div class="drawer-section-title">System Architecture</div>
+  <div class="arch-diagram-wrapper">
+    <svg class="arch-svg" viewBox="0 0 320 160">
+      <rect x="10" y="55" width="75" height="40" class="arch-box active"></rect>
+      <text x="47" y="78" class="arch-text">User Inputs</text>
+      
+      <path d="M 85,75 L 115,75" class="arch-arrow"></path>
+      
+      <rect x="120" y="55" width="80" height="40" class="arch-box active"></rect>
+      <text x="160" y="75" class="arch-text">Adaptive Engine</text>
+      <text x="160" y="87" class="arch-text">(NLP generation)</text>
+      
+      <path d="M 200,75 L 230,75" class="arch-arrow"></path>
+      
+      <rect x="235" y="55" width="75" height="40" class="arch-box active"></rect>
+      <text x="272" y="75" class="arch-text">MongoDB Atlas</text>
+      <text x="272" y="87" class="arch-text">(Cache & Logs)</text>
+    </svg>
+  </div>
+
+  <div class="drawer-section-title">Key Highlights & Impact</div>
+  <ul class="drawer-highlights">
+    <li>Designed content-generation flows based on difficulty matrices using Python.</li>
+    <li>Reached 240 active monthly users within five months with minimal marketing expenses.</li>
+    <li>Acquired direct customer validation metrics showing high user satisfaction rates.</li>
+  </ul>
+
+  <div class="drawer-section-title">Links</div>
+  <div style="display: flex; gap: 1rem; margin-bottom: 2rem;">
+    <a href="#" class="proj-link primary" target="_blank">Launch Live Site</a>
+    <a href="#" class="proj-link" target="_blank">GitHub Repository</a>
+  </div>
+</div>
+
+<!-- DWH Drawer -->
+<div class="project-drawer" id="drawer-dwh">
+  <button class="drawer-close" onclick="closeDrawers()">✕</button>
+  <div class="drawer-title">Enterprise SQL Data Warehouse</div>
+  <div class="drawer-val">Architecture: Medallion Flow</div>
+  <p class="drawer-desc">Designed a corporate data warehouse pipeline to sync raw transactional details from CRM and ERP platforms into structured databases ready for intelligence analytics.</p>
+
+  <div class="drawer-section-title">Screenshot / Mockup</div>
+  <div class="screenshot-container" style="margin-bottom: 2rem;">
+    <img src="assets/project_dwh_detail.jpg" alt="DWH Pipeline Graph" onerror="this.style.display='none';">
+    <span class="screenshot-placeholder-text">[ Insert DWH Pipeline Graph Screenshot ]</span>
+  </div>
+
+  <div class="drawer-section-title">System Architecture</div>
+  <div class="arch-diagram-wrapper">
+    <svg class="arch-svg" viewBox="0 0 320 160">
+      <rect x="5" y="60" width="60" height="30" class="arch-box active"></rect>
+      <text x="35" y="78" class="arch-text">Raw Logs</text>
+      
+      <path d="M 65,75 L 85,75" class="arch-arrow"></path>
+      
+      <rect x="90" y="30" width="60" height="30" class="arch-box active"></rect>
+      <text x="120" y="48" class="arch-text">Bronze Stage</text>
+
+      <path d="M 150,45 L 180,45" class="arch-arrow"></path>
+
+      <rect x="185" y="30" width="60" height="30" class="arch-box active"></rect>
+      <text x="215" y="48" class="arch-text">Silver Stage</text>
+
+      <path d="M 245,45 L 260,45 L 260,80" class="arch-arrow"></path>
+
+      <rect x="230" y="90" width="80" height="40" class="arch-box active"></rect>
+      <text x="270" y="110" class="arch-text">Gold (DWH Model)</text>
+      <text x="270" y="122" class="arch-text">SQL / Tableau</text>
+    </svg>
+  </div>
+
+  <div class="drawer-section-title">Key Highlights & Impact</div>
+  <ul class="drawer-highlights">
+    <li>Configured extraction rules to ingest 20,000+ entries per pipeline run.</li>
+    <li>Enforced database index models to structure tables, accelerating analytics queries.</li>
+    <li>Isolated anomalous data rows, maintaining high-fidelity operational indicators.</li>
+  </ul>
+
+  <div class="drawer-section-title">Links</div>
+  <div style="display: flex; gap: 1rem; margin-bottom: 2rem;">
+    <a href="#" class="proj-link primary" target="_blank">GitHub Repository</a>
+  </div>
+</div>
+
+<!-- iGaming Drawer -->
+<div class="project-drawer" id="drawer-igaming">
+  <button class="drawer-close" onclick="closeDrawers()">✕</button>
+  <div class="drawer-title">iGaming Funnel Analytics</div>
+  <div class="drawer-val">Scale: 10,000+ Monitored Users</div>
+  <p class="drawer-desc">An analytics case study examining conversion funnels and user retention indicators. Built to help operational managers identify key engagement drops.</p>
+
+  <div class="drawer-section-title">Screenshot / Mockup</div>
+  <div class="screenshot-container" style="margin-bottom: 2rem;">
+    <img src="assets/project_igaming_detail.jpg" alt="iGaming Dashboard Screenshot" onerror="this.style.display='none';">
+    <span class="screenshot-placeholder-text">[ Insert Tableau Dashboard Screenshot ]</span>
+  </div>
+
+  <div class="drawer-section-title">System Architecture</div>
+  <div class="arch-diagram-wrapper">
+    <svg class="arch-svg" viewBox="0 0 320 160">
+      <rect x="10" y="55" width="70" height="40" class="arch-box active"></rect>
+      <text x="45" y="78" class="arch-text">Raw Logs (10K+)</text>
+      
+      <path d="M 80,75 L 115,75" class="arch-arrow"></path>
+      
+      <rect x="120" y="55" width="70" height="40" class="arch-box active"></rect>
+      <text x="155" y="75" class="arch-text">Python Processor</text>
+      <text x="155" y="87" class="arch-text">(KPI Metrics)</text>
+      
+      <path d="M 190,75 L 225,75" class="arch-arrow"></path>
+      
+      <rect x="230" y="55" width="80" height="40" class="arch-box active"></rect>
+      <text x="270" y="78" class="arch-text">Tableau Dashboards</text>
+    </svg>
+  </div>
+
+  <div class="drawer-section-title">Key Highlights & Impact</div>
+  <ul class="drawer-highlights">
+    <li>Calculated precise DAU/MAU, user retention, and churn indicators.</li>
+    <li>Visualized retention cohorts in interactive Tableau dashboards.</li>
+    <li>Identified UX bottlenecks, suggesting updates to boost conversion rates.</li>
+  </ul>
+
+  <div class="drawer-section-title">Links</div>
+  <div style="display: flex; gap: 1rem; margin-bottom: 2rem;">
+    <a href="#" class="proj-link primary" target="_blank">Tableau Public Dashboard</a>
+  </div>
+</div>
+
+<!-- RAG Drawer -->
+<div class="project-drawer" id="drawer-rag">
+  <button class="drawer-close" onclick="closeDrawers()">✕</button>
+  <div class="drawer-title">LLaMA-3 Enterprise RAG System</div>
+  <div class="drawer-val">Performance: AI Document Ingestion</div>
+  <p class="drawer-desc">This pipeline automates document analysis. It extracts structured records from emails and PDF invoices, stores the variables, and enables hybrid semantic search over complex enterprise repositories.</p>
+
+  <div class="drawer-section-title">Screenshot / Mockup</div>
+  <div class="screenshot-container" style="margin-bottom: 2rem;">
+    <img src="assets/project_rag_detail.jpg" alt="RAG Pipeline Flow" onerror="this.style.display='none';">
+    <span class="screenshot-placeholder-text">[ Insert RAG Flow diagram or UI Screenshot ]</span>
+  </div>
+
+  <div class="drawer-section-title">System Architecture</div>
+  <div class="arch-diagram-wrapper">
+    <svg class="arch-svg" viewBox="0 0 320 160">
+      <rect x="5" y="20" width="70" height="30" class="arch-box active"></rect>
+      <text x="40" y="38" class="arch-text">PDF / Invoices</text>
+      
+      <path d="M 75,35 L 95,35" class="arch-arrow"></path>
+
+      <rect x="100" y="20" width="70" height="30" class="arch-box active"></rect>
+      <text x="135" y="38" class="arch-text">PaddleOCR API</text>
+      
+      <path d="M 170,35 L 190,35" class="arch-arrow"></path>
+
+      <rect x="195" y="20" width="75" height="30" class="arch-box active"></rect>
+      <text x="232" y="38" class="arch-text">LLaMA-3 JSON</text>
+      
+      <path d="M 270,35 L 285,35 L 285,75" class="arch-arrow"></path>
+
+      <rect x="235" y="85" width="80" height="40" class="arch-box active"></rect>
+      <text x="275" y="105" class="arch-text">Vector Store (FAISS)</text>
+      <text x="275" y="117" class="arch-text">(BM25 Hybrid)</text>
+
+      <rect x="100" y="85" width="80" height="40" class="arch-box active"></rect>
+      <text x="140" y="108" class="arch-text">Google Cloud Storage</text>
+
+      <path d="M 235,105 L 180,105" class="arch-arrow"></path>
+    </svg>
+  </div>
+
+  <div class="drawer-section-title">Key Highlights & Impact</div>
+  <ul class="drawer-highlights">
+    <li>Configured local PaddleOCR routines, resolving data tables formatting issues.</li>
+    <li>Designed a hybrid search indexing structure using BM25 and FAISS, boosting semantic relevance.</li>
+    <li>Significantly lowered manual data-entry delays for ABV Group operations.</li>
+  </ul>
+
+  <div class="drawer-section-title">Links</div>
+  <div style="display: flex; gap: 1rem; margin-bottom: 2rem;">
+    <a href="#" class="proj-link primary" target="_blank">Launch Pipeline Demo</a>
+    <a href="#" class="proj-link" target="_blank">GitHub Repository</a>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-grid">
+    <div class="contact-left">
+      <span class="section-label">Get In Touch</span>
+      <h2 class="section-title">Let's build<br><em>something great.</em></h2>
+      <p class="contact-sub">I am open to discuss Data Engineering opportunities, AI pipeline designs, and technical collaborations.</p>
+      
+      <form class="contact-form" onsubmit="event.preventDefault(); alert('Message sent successfully! Aykhan will contact you shortly.');">
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" class="form-control" placeholder="John Doe" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" class="form-control" placeholder="john@company.com" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message Details</label>
+          <textarea id="message" class="form-control" rows="4" placeholder="Brief project details or inquiry..." required></textarea>
+        </div>
+        <button type="submit" class="btn-primary" style="margin-top: 1rem; align-self: flex-start;">Send Proposal</button>
+      </form>
+    </div>
+    
+    <div style="display: flex; flex-direction: column; justify-content: center; gap: 2rem;">
+      <span class="section-label" style="margin-bottom: 0;">Direct Channels</span>
+      <div class="contact-links">
+        <a href="mailto:ayhan.alakbarov07@gmail.com" class="contact-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          ayhan.alakbarov07@gmail.com
+        </a>
+        <a href="tel:+994505693934" class="contact-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          (+994) 50 569 39 34
+        </a>
+        <a href="https://github.com/AyhanAlakbarov" target="_blank" class="contact-link">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          GitHub
+        </a>
+        <a href="https://linkedin.com/in/aykhan-alakbarov" target="_blank" class="contact-link">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 Aykhan Alakbarov · Built with precision and engineering integrity</span>
+</footer>
+
+<script>
+// Navbar scroll logic
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// Mobile menu logic
+document.getElementById('hamburger').addEventListener('click', () => {
+  document.getElementById('mobileMenu').classList.add('open');
+});
+document.getElementById('mobileClose').addEventListener('click', closeMobile);
+function closeMobile() { document.getElementById('mobileMenu').classList.remove('open'); }
+
+// Scroll Reveal Observer
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Stats counters animation
+const stripCounters = document.querySelectorAll('.strip-num[data-target]');
+const stripObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el = e.target;
+    const target = parseInt(el.dataset.target);
+    const suffix = el.dataset.suffix || '';
+    const prefix = el.dataset.prefix || '';
+    let current = 0;
+    const step = Math.max(1, Math.ceil(target / 40));
+    const timer = setInterval(() => {
+      current = Math.min(current + step, target);
+      el.textContent = prefix + current + suffix;
+      if (current >= target) clearInterval(timer);
+    }, 40);
+    stripObs.unobserve(el);
+  });
+}, { threshold: 0.5 });
+stripCounters.forEach(el => stripObs.observe(el));
+
+// Work Experience Chapters reveal
+const chapterObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.15 });
+document.querySelectorAll('.chapter').forEach(el => chapterObs.observe(el));
+
+// Project filtering logic
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.dataset.filter;
+    document.querySelectorAll('.project-card').forEach(card => {
+      card.classList.toggle('hidden', filter !== 'all' && card.dataset.category !== filter);
+    });
+  });
+});
+
+// Slide Drawers logic
+const backdrop = document.getElementById('drawerBackdrop');
+const drawers = document.querySelectorAll('.project-drawer');
+
+document.querySelectorAll('.drawer-trigger').forEach(trigger => {
+  trigger.addEventListener('click', (e) => {
+    e.preventDefault();
+    const projectId = trigger.dataset.project;
+    const targetDrawer = document.getElementById(`drawer-${projectId}`);
+    
+    closeDrawers();
+    if (targetDrawer) {
+      targetDrawer.classList.add('open');
+      backdrop.classList.add('open');
+    }
+  });
+});
+
+backdrop.addEventListener('click', closeDrawers);
+
+function closeDrawers() {
+  drawers.forEach(d => d.classList.remove('open'));
+  backdrop.classList.remove('open');
+}
+
+// Close CV modal on backdrop click
+document.getElementById('cvModal').addEventListener('click', function(e) {
+  if (e.target === this) this.classList.remove('open');
+});
+
+// Dual Theme Toggle Engine
+const themeToggle = document.getElementById('themeToggle');
+const savedTheme = localStorage.getItem('theme') || 'light';
+document.documentElement.setAttribute('data-theme', savedTheme);
+
+themeToggle.addEventListener('click', () => {
+  const currentTheme = document.documentElement.getAttribute('data-theme');
+  const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', newTheme);
+  localStorage.setItem('theme', newTheme);
+});
+</script>
+</body>
+</html>

@@ -261,12 +261,12 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: 77% 12%;
-    transform: scale(1.12);
+    object-position: 50% 20%;
+    transform: scale(1);
     transition: var(--transition);
   }
   .photo-frame:hover img {
-    transform: scale(1.18);
+    transform: scale(1.05);
   }
   .photo-deco {
     position: absolute;
@@ -533,7 +533,7 @@
   /* Screenshot Container and Placeholders */
   .screenshot-container {
     width: 100%;
-    height: 180px;
+    height: 200px;
     background: var(--bg2);
     border-bottom: 1px solid var(--border);
     display: flex;
@@ -562,6 +562,8 @@
     padding: 1rem;
   }
   
+  .project-drawer .screenshot-container { flex-shrink: 0; height: auto; border: 1px solid var(--border); border-radius: var(--radius); }
+  .project-drawer .screenshot-container img { height: auto; display: block; }
   .project-badge {
     position: absolute; top: 14px; right: 14px;
     font-size: 0.72rem; font-weight: 700;
@@ -571,9 +573,10 @@
     text-transform: uppercase;
     z-index: 2;
   }
-  .badge-hackathon { background: rgba(255, 152, 0, 0.15); color: #E65100; }
-  .badge-startup { background: rgba(76, 175, 80, 0.15); color: #2E7D32; }
-  .badge-professional { background: rgba(33, 150, 243, 0.15); color: #1565C0; }
+  .badge-hackathon { background: #FFE8CC; color: #B53D00; }
+  .badge-startup { background: #DDF0D3; color: #1F5F23; }
+  .badge-professional { background: #DCEBFB; color: #0F4C9A; }
+  .project-badge { box-shadow: 0 3px 10px rgba(26,24,20,0.18); }
   .badge-personal { background: rgba(156, 39, 176, 0.15); color: #6A1B9A; }
   
   .project-body { padding: 1.6rem; flex: 1; display: flex; flex-direction: column; }
@@ -993,6 +996,8 @@
           <div class="tech-tag" data-tooltip="C/C++: Integrated for embedded speech systems and real-time edge processing at Inha Lab."><i class="devicon-cplusplus-plain colored"></i> C/C++<span class="tech-tooltip">C/C++: Integrated for embedded speech systems and real-time edge processing at Inha Lab.</span></div>
           <div class="tech-tag" data-tooltip="SQL: Structured schemas and queries in MSSQL and MySQL databases at NAAL Electronics."><i class="devicon-postgresql-plain colored"></i> SQL (MSSQL, MySQL)<span class="tech-tooltip">SQL: Structured schemas and queries in MSSQL and MySQL databases.</span></div>
           <div class="tech-tag" data-tooltip="Oracle / PL-SQL: Programmed stored procedures and transaction tables."><i class="devicon-oracle-original colored"></i> Oracle / PL-SQL<span class="tech-tooltip">Oracle / PL-SQL: Programmed stored procedures and transaction tables.</span></div>
+          <div class="tech-tag" data-tooltip="Database Management: Designed schemas and managed databases for 3 business clients, integrating data for 2 new client websites."><i class="devicon-mysql-original colored"></i> Database Management<span class="tech-tooltip">Database Management: Designed schemas and managed databases for 3 business clients, integrating data for 2 new client websites.</span></div>
+          <div class="tech-tag" data-tooltip="Data Structures &amp; Algorithms: Core computer-science coursework from the Inha University and Baku Engineering University dual degree."><i class="devicon-python-plain"></i> Data Structures &amp; Algorithms<span class="tech-tooltip">Data Structures &amp; Algorithms: Core computer-science coursework from the Inha University and Baku Engineering University dual degree.</span></div>
         </div>
       </div>
       
@@ -1004,6 +1009,7 @@
           <div class="tech-tag" data-tooltip="Apache Spark: Executed large-scale analytics computations on clusters."><i class="devicon-apachespark-original colored"></i> Apache Spark<span class="tech-tooltip">Apache Spark: Executed large-scale analytics computations on clusters.</span></div>
           <div class="tech-tag" data-tooltip="Tableau / Power BI: Designed operational KPI metrics monitoring views."><i class="devicon-windows8-original colored"></i> Tableau / Power BI<span class="tech-tooltip">Tableau / Power BI: Designed operational KPI metrics monitoring views.</span></div>
           <div class="tech-tag" data-tooltip="Excel: Built spreadsheet models for basic audits and data transformations."><i class="devicon-python-plain"></i> Excel<span class="tech-tooltip">Excel: Built spreadsheet models for basic audits and data transformations.</span></div>
+          <div class="tech-tag" data-tooltip="Statistics &amp; Probability: Applied in data validation, HR analytics metrics and model evaluation."><i class="devicon-numpy-original colored"></i> Statistics &amp; Probability<span class="tech-tooltip">Statistics &amp; Probability: Applied in data validation, HR analytics metrics and model evaluation.</span></div>
         </div>
       </div>
     </div>
@@ -1015,6 +1021,7 @@
           <div class="tech-tag" data-tooltip="ML / AI: Constructed and evaluated machine learning predictive algorithms."><i class="devicon-pytorch-original colored"></i> ML / AI<span class="tech-tooltip">ML / AI: Constructed and evaluated machine learning predictive algorithms.</span></div>
           <div class="tech-tag" data-tooltip="Scikit-Learn: Implemented classification and regression pipelines."><i class="devicon-scikitlearn-plain colored"></i> Scikit-learn<span class="tech-tooltip">Scikit-learn: Implemented classification and regression pipelines.</span></div>
           <div class="tech-tag" data-tooltip="Pandas / Numpy: Core tools for processing structural matrices."><i class="devicon-pandas-original colored"></i> Pandas / Numpy<span class="tech-tooltip">Pandas / Numpy: Core tools for processing structural matrices.</span></div>
+          <div class="tech-tag" data-tooltip="Linear Algebra: Mathematical foundation for machine learning, from the B.Sc. coursework."><i class="devicon-numpy-original"></i> Linear Algebra<span class="tech-tooltip">Linear Algebra: Mathematical foundation for machine learning, from the B.Sc. coursework.</span></div>
         </div>
       </div>
       
@@ -1037,6 +1044,16 @@
           <div class="tech-tag" data-tooltip="Trello / Notion: Coordinated project boards and documented specifications."><i class="devicon-trello-plain colored"></i> Trello / Notion<span class="tech-tooltip">Trello / Notion: Coordinated project boards and documented specifications.</span></div>
         </div>
       </div>
+
+      <div class="stack-group">
+        <div class="stack-group-label">Spoken Languages</div>
+        <div class="tech-tags">
+          <div class="tech-tag" data-tooltip="English: C1, IELTS 7.0.">🗣️ English · C1<span class="tech-tooltip">English: C1, IELTS 7.0.</span></div>
+          <div class="tech-tag" data-tooltip="Azerbaijani: native speaker.">🗣️ Azerbaijani · Native<span class="tech-tooltip">Azerbaijani: native speaker.</span></div>
+          <div class="tech-tag" data-tooltip="Turkish: C2, near-native proficiency.">🗣️ Turkish · C2<span class="tech-tooltip">Turkish: C2, near-native proficiency.</span></div>
+          <div class="tech-tag" data-tooltip="Korean: B1, from the dual-degree year at Inha University, South Korea.">🗣️ Korean · B1<span class="tech-tooltip">Korean: B1, from the dual-degree year at Inha University, South Korea.</span></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1053,22 +1070,45 @@
   </div>
   <div class="projects-grid reveal" id="projectsGrid">
 
+    <!-- Project 0: Elmify -->
+    <div class="project-card" data-category="startup" data-project-id="elmify">
+      <div class="screenshot-container">
+        <img src="assets/project_elmify.jpg" alt="Elmify scholarship platform dashboard" onerror="this.style.display='none';">
+        <span class="project-badge badge-startup">🚀 Product Built</span>
+      </div>
+      <div class="project-body">
+        <div class="project-name">Elmify: Scholarship Intelligence Platform</div>
+        <div class="project-val">AI Agent SaaS for Students &amp; Agencies</div>
+        <p class="project-desc">Paid platform that finds master's scholarships a student can actually afford, verifies them against official sources, and manages the whole application: strategy, documents, portals and deadlines.</p>
+        <div class="project-techs">
+          <span class="tech-pill">Django</span>
+          <span class="tech-pill">PostgreSQL</span>
+          <span class="tech-pill">AWS (SQS, Fargate)</span>
+          <span class="tech-pill">Next.js</span>
+        </div>
+        <div class="project-links">
+          <a href="#" class="proj-link primary drawer-trigger" data-project="elmify">Architecture & Details</a>
+          <a href="https://github.com/AyhanAlakbarov/elmify" class="proj-link" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+    </div>
+
     <!-- Project 1: ERP Attendance System -->
     <div class="project-card" data-category="startup" data-project-id="erp">
       <!-- Screenshot Container/Placeholder -->
       <div class="screenshot-container">
         <img src="assets/project_erp.jpg" alt="ERP System Screenshot" onerror="this.style.display='none';">
-        <span class="screenshot-placeholder-text">[ Insert ERP Screenshot Here ]</span>
         <span class="project-badge badge-startup">💰 Sold: $14K + Rev Share</span>
       </div>
       <div class="project-body">
-        <div class="project-name">HR / ERP Attendance & Payroll System</div>
+        <div class="project-name">Attenda: HR / ERP Attendance &amp; Payroll System</div>
         <div class="project-val">Commercial Enterprise Product</div>
-        <p class="project-desc">Designed an employee management platform connecting HikVision facial recognition and fingerprint hardware to automated salary and attendance calculations. Sold to ABV Group.</p>
+        <p class="project-desc">Built a multi-tenant HR platform that connects HikVision face-recognition terminals to live attendance, shift schedules, work-hour tabels and leave management, with an Azerbaijani-first interface. Sold to ABV Group.</p>
         <div class="project-techs">
-          <span class="tech-pill">Biometrics Integration</span>
-          <span class="tech-pill">Payroll Engine</span>
-          <span class="tech-pill">SQL</span>
+          <span class="tech-pill">Spring Boot</span>
+          <span class="tech-pill">React + TypeScript</span>
+          <span class="tech-pill">PostgreSQL</span>
+          <span class="tech-pill">ISAPI</span>
         </div>
         <div class="project-links">
           <a href="#" class="proj-link primary drawer-trigger" data-project="erp">Architecture & Details</a>
@@ -1082,7 +1122,6 @@
       <!-- Screenshot Container/Placeholder -->
       <div class="screenshot-container">
         <img src="assets/project_sakhara.jpg" alt="Sakhara SaaS Screenshot" onerror="this.style.display='none';">
-        <span class="screenshot-placeholder-text">[ Insert Sakhara SaaS Screenshot Here ]</span>
         <span class="project-badge badge-startup">💰 Sold: $12K Outright</span>
       </div>
       <div class="project-body">
@@ -1106,7 +1145,6 @@
       <!-- Screenshot Container/Placeholder -->
       <div class="screenshot-container">
         <img src="assets/project_learned.jpg" alt="Learned Screenshot" onerror="this.style.display='none';">
-        <span class="screenshot-placeholder-text">[ Insert Learned Screenshot Here ]</span>
         <span class="project-badge badge-startup">🚀 Co-Founded: $7K Rev</span>
       </div>
       <div class="project-body">
@@ -1130,7 +1168,6 @@
       <!-- Screenshot Container/Placeholder -->
       <div class="screenshot-container">
         <img src="assets/project_dwh.jpg" alt="DWH Screenshot" onerror="this.style.display='none';">
-        <span class="screenshot-placeholder-text">[ Insert DWH Flow Diagram Here ]</span>
         <span class="project-badge badge-professional">💼 Data Infrastructure</span>
       </div>
       <div class="project-body">
@@ -1154,7 +1191,6 @@
       <!-- Screenshot Container/Placeholder -->
       <div class="screenshot-container">
         <img src="assets/project_igaming.jpg" alt="iGaming Screenshot" onerror="this.style.display='none';">
-        <span class="screenshot-placeholder-text">[ Insert Dashboard Screenshot Here ]</span>
         <span class="project-badge badge-professional">💼 Analytics Delivery</span>
       </div>
       <div class="project-body">
@@ -1178,7 +1214,6 @@
       <!-- Screenshot Container/Placeholder -->
       <div class="screenshot-container">
         <img src="assets/project_rag.jpg" alt="RAG Pipeline Screenshot" onerror="this.style.display='none';">
-        <span class="screenshot-placeholder-text">[ Insert RAG System Flow Screenshot ]</span>
         <span class="project-badge badge-hackathon">🏆 AI Ingestion pipeline</span>
       </div>
       <div class="project-body">
@@ -1245,16 +1280,65 @@
 
 <!-- PROJECT SIDE DRAWERS -->
 <!-- ERP System Drawer -->
+<!-- Elmify Drawer -->
+<div class="project-drawer" id="drawer-elmify">
+  <button class="drawer-close" onclick="closeDrawers()">✕</button>
+  <div class="drawer-title">Elmify: Scholarship Intelligence Platform</div>
+  <div class="drawer-val">Product: Multi-tenant SaaS for students and education agencies</div>
+  <p class="drawer-desc">Elmify finds master's funding that is verified against official sources, models what a student still has to pay in each city, and then does the application work: a recommended pack, tailored CV and motivation letters, portal navigation, fee tracking and deadline monitoring, all in one dashboard. Agencies can run it white-label under their own brand.</p>
+
+  <div class="drawer-section-title">Screenshot / Mockup</div>
+  <div class="screenshot-container" style="margin-bottom: 2rem;">
+    <img src="assets/project_elmify_detail.jpg" alt="Elmify application roadmap and funding gap" onerror="this.style.display='none';">
+  </div>
+
+  <div class="drawer-section-title">System Architecture</div>
+  <div class="arch-diagram-wrapper">
+    <svg class="arch-svg" viewBox="0 0 320 160">
+      <rect x="6" y="45" width="64" height="40" class="arch-box active"></rect>
+      <text x="38" y="62" class="arch-text">Student /</text>
+      <text x="38" y="74" class="arch-text">Agency</text>
+      <path d="M 70,65 L 84,65" class="arch-arrow"></path>
+      <rect x="86" y="45" width="68" height="40" class="arch-box active"></rect>
+      <text x="120" y="62" class="arch-text">Django</text>
+      <text x="120" y="74" class="arch-text">Web App</text>
+      <path d="M 154,65 L 168,65" class="arch-arrow"></path>
+      <rect x="170" y="45" width="68" height="40" class="arch-box active"></rect>
+      <text x="204" y="62" class="arch-text">SQS Queue</text>
+      <text x="204" y="74" class="arch-text">(per tenant)</text>
+      <path d="M 238,65 L 252,65" class="arch-arrow"></path>
+      <rect x="254" y="45" width="60" height="40" class="arch-box active"></rect>
+      <text x="284" y="62" class="arch-text">Fargate</text>
+      <text x="284" y="74" class="arch-text">Workers</text>
+      <rect x="86" y="108" width="68" height="30" class="arch-box"></rect>
+      <text x="120" y="126" class="arch-text">PostgreSQL</text>
+      <path d="M 120,85 L 120,108" class="arch-arrow"></path>
+      <path d="M 284,85 L 284,123 L 154,123" class="arch-arrow"></path>
+    </svg>
+  </div>
+
+  <div class="drawer-section-title">Key Highlights & Impact</div>
+  <ul class="drawer-highlights">
+    <li>Funding Intelligence Engine: every scholarship is shown with its official source, deadline and last-checked date, plus a city-specific affordability and funding-gap calculation.</li>
+    <li>Agentic research workers run in private Fargate tasks with controlled egress; tenant ID is used as the queue message group so one agency cannot starve the others.</li>
+    <li>Counselor-reviewed CV and motivation letters generated from verified facts, with a single dashboard for roadmap, documents, fees and interview calls.</li>
+  </ul>
+
+  <div class="drawer-section-title">Links</div>
+  <div style="display: flex; gap: 1rem; margin-bottom: 2rem;">
+    <a href="https://github.com/AyhanAlakbarov/elmify" class="proj-link primary" target="_blank" rel="noopener">GitHub Repository</a>
+  </div>
+</div>
+
 <div class="project-drawer" id="drawer-erp">
   <button class="drawer-close" onclick="closeDrawers()">✕</button>
-  <div class="drawer-title">HR / ERP Attendance & Payroll System</div>
+  <div class="drawer-title">Attenda: HR / ERP Attendance &amp; Payroll System</div>
   <div class="drawer-val">Revenue: $14,000 + 20% Lifetime Share</div>
-  <p class="drawer-desc">This enterprise product was built to streamline operational HR structures. It connects physical local biometric terminals directly to structured SQL databases and calculates net payroll based on shift laws, automatic deducts, and overtime structures.</p>
+  <p class="drawer-desc">Attenda streamlines office HR operations. A dedicated ISAPI service pulls punch events from HikVision face-recognition terminals into PostgreSQL, and the core API turns them into daily attendance, shift-aware lateness, monthly tabels, leave balances and reports. Data is separated per company, so one deployment serves several tenants.</p>
   
   <div class="drawer-section-title">Screenshot / Mockup</div>
   <div class="screenshot-container" style="margin-bottom: 2rem;">
     <img src="assets/project_erp_detail.jpg" alt="ERP Details Screenshot" onerror="this.style.display='none';">
-    <span class="screenshot-placeholder-text">[ Insert ERP In-Depth Screenshot Here ]</span>
   </div>
 
   <div class="drawer-section-title">System Architecture</div>
@@ -1266,26 +1350,27 @@
         </marker>
       </defs>
       <rect x="10" y="55" width="70" height="40" class="arch-box active"></rect>
-      <text x="45" y="78" class="arch-text">Biometric Devices</text>
+      <text x="45" y="72" class="arch-text">Face</text>
+      <text x="45" y="84" class="arch-text">Terminals</text>
       
       <path d="M 80,75 L 115,75" class="arch-arrow"></path>
       
       <rect x="120" y="55" width="70" height="40" class="arch-box active"></rect>
-      <text x="155" y="75" class="arch-text">Node.js API</text>
-      <text x="155" y="87" class="arch-text">(Calculations)</text>
+      <text x="155" y="75" class="arch-text">Spring Boot</text>
+      <text x="155" y="87" class="arch-text">(API + ISAPI)</text>
       
       <path d="M 190,75 L 225,75" class="arch-arrow"></path>
       
       <rect x="230" y="55" width="80" height="40" class="arch-box active"></rect>
-      <text x="270" y="72" class="arch-text">MSSQL Database</text>
-      <text x="270" y="84" class="arch-text">(HR Dashboard)</text>
+      <text x="270" y="72" class="arch-text">PostgreSQL</text>
+      <text x="270" y="84" class="arch-text">(Tenant data)</text>
     </svg>
   </div>
   
   <div class="drawer-section-title">Key Highlights & Impact</div>
   <ul class="drawer-highlights">
-    <li>Integrated HikVision Device SDKs to fetch raw log streams securely over networks.</li>
-    <li>Engineered custom shift parsing algorithms in Python and SQL, resolving Split-shift Edge cases.</li>
+    <li>Built a separate Spring Boot ISAPI service that syncs users and punch events from HikVision terminals, with cursor reset and event re-import control.</li>
+    <li>Implemented shift schedules, break rules and lateness tolerance that feed daily attendance and monthly tabel calculations; multi-tenant by company, with Flyway migrations and Docker Compose deployment.</li>
     <li>Delivered to ABV Group; currently deployed across 5+ companies handling 2,000+ combined staff.</li>
   </ul>
 
@@ -1306,7 +1391,6 @@
   <div class="drawer-section-title">Screenshot / Mockup</div>
   <div class="screenshot-container" style="margin-bottom: 2rem;">
     <img src="assets/project_sakhara_detail.jpg" alt="Sakhara Details Screenshot" onerror="this.style.display='none';">
-    <span class="screenshot-placeholder-text">[ Insert Sakhara Details Screenshot Here ]</span>
   </div>
 
   <div class="drawer-section-title">System Architecture</div>
@@ -1352,7 +1436,6 @@
   <div class="drawer-section-title">Screenshot / Mockup</div>
   <div class="screenshot-container" style="margin-bottom: 2rem;">
     <img src="assets/project_learned_detail.jpg" alt="Learned Details Screenshot" onerror="this.style.display='none';">
-    <span class="screenshot-placeholder-text">[ Insert Learned App Mockup Here ]</span>
   </div>
 
   <div class="drawer-section-title">System Architecture</div>
@@ -1399,7 +1482,6 @@
   <div class="drawer-section-title">Screenshot / Mockup</div>
   <div class="screenshot-container" style="margin-bottom: 2rem;">
     <img src="assets/project_dwh_detail.jpg" alt="DWH Pipeline Graph" onerror="this.style.display='none';">
-    <span class="screenshot-placeholder-text">[ Insert DWH Pipeline Graph Screenshot ]</span>
   </div>
 
   <div class="drawer-section-title">System Architecture</div>
@@ -1449,7 +1531,6 @@
   <div class="drawer-section-title">Screenshot / Mockup</div>
   <div class="screenshot-container" style="margin-bottom: 2rem;">
     <img src="assets/project_igaming_detail.jpg" alt="iGaming Dashboard Screenshot" onerror="this.style.display='none';">
-    <span class="screenshot-placeholder-text">[ Insert Tableau Dashboard Screenshot ]</span>
   </div>
 
   <div class="drawer-section-title">System Architecture</div>
@@ -1494,7 +1575,6 @@
   <div class="drawer-section-title">Screenshot / Mockup</div>
   <div class="screenshot-container" style="margin-bottom: 2rem;">
     <img src="assets/project_rag_detail.jpg" alt="RAG Pipeline Flow" onerror="this.style.display='none';">
-    <span class="screenshot-placeholder-text">[ Insert RAG Flow diagram or UI Screenshot ]</span>
   </div>
 
   <div class="drawer-section-title">System Architecture</div>
